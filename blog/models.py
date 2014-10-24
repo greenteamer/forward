@@ -54,3 +54,36 @@ class Post(models.Model):
     class Meta:
         verbose_name = (u'Статья')
         verbose_name_plural = (u'Статьи')
+
+
+class BlogPost(models.Model):
+    title = models.CharField(verbose_name="Название статьи", max_length=100)
+    slug = AutoSlugField(editable=True, default='default', verbose_name="ссылка")
+
+    title_tag = models.CharField(verbose_name="title", max_length=60)
+    description = models.CharField(verbose_name="description", max_length=160)
+    keywords = models.CharField(verbose_name="keywords", max_length=60)
+
+    date = models.DateTimeField(verbose_name="Дата создания", auto_now_add=True, null=True)
+    text = RichTextField()
+    image = models.ImageField(verbose_name="Главная картинка", upload_to='blog')
+
+    # принадлежность
+    author_choice = models.CharField(
+        max_length=8,
+        verbose_name="Автор",
+        choices=(
+            ('korovkin','Александр Коровкин'),
+            ('pakhomov', 'Алексей Пахомов'),
+        ),
+        default='korovkin'
+    )
+    def post_korovkin(self):
+        return self.author_choice=='korovkin'
+
+    def __unicode__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = (u'Авторская статья')
+        verbose_name_plural = (u'Авторские статьи')

@@ -126,6 +126,7 @@ ul.nav.my_nav {
 
 .middle_text {
     color: #83adff;
+    min-height: 130px;
 }
 
 .rights {
@@ -1054,3 +1055,51 @@ h3#myModalLabel {
 #myModal input#id_submit:hover {
     background:#224D9F;
 }
+
+/*author blog*/
+.top_menu ul {
+    text-align: right;
+}
+.top_menu ul li {
+    list-style: none;
+    margin-right: 16px;
+    margin-top: -40px;
+    margin-bottom: 20px;
+}
+.top_menu ul li a {
+    color: #5a5a5a;
+    padding:10px 20px;
+    border-radius: 3px;
+    text-decoration: underline;
+}
+.top_menu ul li a:hover {
+    text-decoration: none;
+    background: #5a5a5a;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

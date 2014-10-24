@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+
+{% block meta %}
+    <title>Статьи о создании сайтов</title>
+    <meta name="description" content="Статьи о создании и продвижении сайтов, их преимуществах и недостатках, о том как продвинуть свой сайт самостоятельно или купить сайт, готовый к работе." >
+    <meta name ="keywords" content="Создание сайтов в Томске, продвижение сайтов в Томске">
+{% endblock %}
+
+{% block review_slider %}
+{% endblock %}
+
+{% block slogan %}
+{% endblock %}
+
+{% block first_content %}
+    <div class="header home">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="header_title">
+                        <h2>Авторский блок предпринимателя и программиста</h2>
+                    </div>
+                </div>
+                <div class="span12 post_in_blue">
+                    <div class="row">
+                        {% for post in author_posts %}
+                            <div class="span6">
+                                <div>
+                                    <h4>{{ post.title }}</h4>
+                                    <div class="sport_date">{{ post.date }}</div>
+                                    <div>
+                                        {% thumbnail post.image "250x150" crop="center" as im %}
+                                            <img class="_category-img" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="Иллюстрация" align="left" vspace="5" hspace="5">
+                                        {% endthumbnail %}
+                                        <div class="middle_text">{{ post.text|removetags:"img"|truncatewords:"150"|safe }}</div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <a href="/author/{{ post.slug }}">подробнее</a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="span9">
+            <div>
+
+            </div>
+        </div>
+    {% block sidebar_menu %}
+        <div class="span3">
+        </div>
+    {% endblock %}
+    </div>
+{% endblock %}
+
+{% block content %}
+{% endblock %}

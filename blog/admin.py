@@ -15,6 +15,7 @@ class FolioAdmin(admin.ModelAdmin):
 
 admin.site.register(Review)
 admin.site.register(Post)
+admin.site.register(BlogPost)
 
 admin.site.register(Portfolio, FolioAdmin)
 
