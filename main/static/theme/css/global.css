@@ -1077,10 +1077,50 @@ h3#myModalLabel {
     background: #5a5a5a;
     color: #fff;
 }
-
-
-
-
+.about_author {
+    color: #9abee5;
+}
+.author_blog_list .post_in_blue img {
+    width: 200px;
+    float: left;
+    margin-right: 20px;
+    margin-top: -20px;
+}
+.author_blog_list .post_in_blue h4 {
+    margin-top: 20px;
+}
+.author_blog_list_content .header_title h2{
+    margin: 20px 0 30px 0;
+    font-family: 'eurofurence light';
+    font-size: 50px;
+}
+.author_blog_list_content h4 {
+    font-family: 'eurofurence light';
+    font-size: 30px;
+}
+.author_blog_list_content a {
+    background: #5c5c5c;
+    border-radius: 2px;
+    color: #fff;
+    margin-left: 4px;
+    text-decoration: none;
+    padding: 10px 15px 10px;
+    float: right;
+}
+.author_blog_list_content a:hover {
+    background: #3b3b3b;
+    text-decoration: none;
+    color: #fff;
+}
+.author_blog_list_content .author_post {
+    margin-top: 20px;
+}
+.author_blog_list_content .text {
+    margin-bottom: 10px;
+}
+.author_blog_list_content {
+    margin-bottom: 40px;
+}
 
 
 

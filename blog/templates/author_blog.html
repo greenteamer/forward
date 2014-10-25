@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load thumbnail %}
+{% load staticfiles %}
 
 {% block meta %}
     <title>Статьи о создании сайтов</title>
@@ -14,53 +15,116 @@
 {% endblock %}
 
 {% block first_content %}
-    <div class="header home">
+    <div class="header home author_blog_list">
         <div class="container">
             <div class="row">
                 <div class="span12">
                     <div class="header_title">
-                        <h2>Авторский блок предпринимателя и программиста</h2>
+                        <h2>Авторский блог руководителей предприятия Forward</h2>
                     </div>
                 </div>
                 <div class="span12 post_in_blue">
                     <div class="row">
-                        {% for post in author_posts %}
-                            <div class="span6">
-                                <div>
-                                    <h4>{{ post.title }}</h4>
-                                    <div class="sport_date">{{ post.date }}</div>
-                                    <div>
-                                        {% thumbnail post.image "250x150" crop="center" as im %}
-                                            <img class="_category-img" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="Иллюстрация" align="left" vspace="5" hspace="5">
-                                        {% endthumbnail %}
-                                        <div class="middle_text">{{ post.text|removetags:"img"|truncatewords:"150"|safe }}</div>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <a href="/author/{{ post.slug }}">подробнее</a>
-                                </div>
+                        <div class="span6">
+                            <div>
+                                <img src="{% static 'theme/img/sanya.png' %}" alt=""/>
+                                <h4>Александр Коровкин</h4>
+                                <div class="about_author">Предприниматель, основатель компании Forward и двух стартапов в Томске. Программист, автор ряда дизайнерских проетов. Сфера ответственности: менеджмент, работа с клиентами ,инновационные технологии и стратегическое планирование.</div>
                             </div>
-                        {% endfor %}
+                        </div>
+                        <div class="span6">
+                            <div>
+                                <img src="{% static 'theme/img/leha.png' %}" alt=""/>
+                                <h4>Алексей Пахомов</h4>
+                                <div class="about_author">Предприниматель, основатель компании Forward и двух стартапов в Томске. Веб-разработчик, специалист юзабилити . Сфера ответственности: стратегия развития проекта, работа с клиентами , тестирование юзабилити.</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+{% endblock %}
 
+{% block portfolio %}
+{% endblock %}
 
-    <div class="row">
-        <div class="span9">
-            <div>
+{% block bottom_content %}
+{% endblock %}
 
+{% block img_second %}
+{% endblock %}
+
+{% block second_content %}
+    <div class="container author_blog_list_content">
+        <div class="row">
+            <div class="span12">
+                <div class="header_title">
+                    <h2>Последние сатьи</h2>
+                </div>
+            </div>
+            <div class="span12">
+                <div class="row">
+                    {% for post in author_posts %}
+                        <div class="span8 author_post">
+                            <div>
+                                <h4>{{ post.title }}</h4>
+                                <div class="sport_date">{{ post.date }}</div>
+                                <div class="text">
+                                    {% thumbnail post.image "250x150" crop="center" as im %}
+                                        <img class="_category-img" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="Иллюстрация" align="left" vspace="5" hspace="5">
+                                    {% endthumbnail %}
+                                    <div class="">{{ post.text|removetags:"img"|truncatewords:"150"|safe }}</div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <a href="/author/{{ post.slug }}">подробнее</a>
+                            </div>
+                        </div>
+                        <div class="span4">
+                            {% block sidebar_menu %}
+                                <div class="span3">
+                                </div>
+                            {% endblock %}
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
-    {% block sidebar_menu %}
-        <div class="span3">
-        </div>
-    {% endblock %}
     </div>
 {% endblock %}
 
-{% block content %}
-{% endblock %}
+<!--footer-->
+        {% block footer %}
+            <div class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="span12">
+                            <div class="row grams">
+                                {% block destinations %}
+                                    <div class="span4" style="margin-top: 40px;">
+                                        <p>г.Томск, ул Кирова 58 стр 55  оф. 61</p>
+                                        <p>тел. (3822) 94-20-19</p>
+                                        <p>Email: forward.70@yandex.ru</p>
+                                        <p>skype: greenteamer</p>
+                                    </div>
+                                {% endblock %}
+                                {% block grams %}
+                                    <div class="span8">
+                                        <p><a id="firmsonmap_biglink" href="http://maps.2gis.ru/#/?history=project/tomsk/center/84.984178848713,56.466354189737/zoom/17/state/widget/id/422740746465572/firms/422740746465572" style="display: none;">Перейти к большой карте</a><br>
+                                            <script charset="utf-8" type="text/javascript" src="http://firmsonmap.api.2gis.ru/js/DGWidgetLoader.js"></script><br>
+                                            <script charset="utf-8" type="text/javascript">new DGWidgetLoader({"borderColor":"#a3a3a3","width":"770","height":"400","wid":"a0f0bba8b3fcfee1982bdc474efe666a","pos":{"lon":"84.984178848713","lat":"56.466354189737","zoom":"16"},"opt":{"ref":"hidden","card":["name","contacts","schedule","payings"],"city":"tomsk"},"org":[{"id":"422740746465572"}]});</script>
+                                        </p>
+                                        <noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
+                                    </div>
+                                {% endblock %}
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+
