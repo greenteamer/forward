@@ -35,7 +35,7 @@
                 {% thumbnail blogpost.image "250x150" crop="center" as im %}
                     <img class="_category-img" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="Иллюстрация" align="left" vspace="5" hspace="5">
                 {% endthumbnail %}
-                <div>{{ blogpost.text|removetags:"img" }}</div>
+                <div>{{ blogpost.text|removetags:"img"|safe }}</div>
             </div>
 
             <div class="span3">
