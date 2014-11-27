@@ -27,7 +27,7 @@ class PromoMail(models.Model):
             }
 
         message = render_to_string('%s' % self.template, context_dict)
-        msg = EmailMultiAlternatives(self.subject, message, ADMIN_EMAIL, [self.recipient])
+        msg = EmailMultiAlternatives(self.subject, message, self.sender, [self.recipient])
         msg.content_subtype = "html"
         msg.send()
 
