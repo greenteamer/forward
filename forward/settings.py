@@ -10,7 +10,7 @@ PROJECT_NAME = basename(PROJECT_PATH)
 
 FILE_UPLOAD_PERMISSIONS = 0644
 
-
+ADMIN_EMAIL = 'teamer777@gmail.com'
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -125,6 +125,7 @@ LOCAL_APPS = (
     'feedback',
     'grammars',
     'ajaxapp',
+    'mail',
 )
 
 # A sample logging configuration. The only tangible logging

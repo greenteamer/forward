@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<head>
+    <meta charset="utf-8">
+    <link href="{% static 'theme/css/mail/corporate.css' %}" rel="stylesheet">
+
+    <style>
+        .content_mail {
+            background: #000!important;
+        }
+    </style>
+    
+</head>
+<h1>{{ title }}</h1>
+
+<h3>Благодарим за интерес к нашей продукции.<br/>
+Ваше письмо получено. Мы свяжемся с Вами в ближайшее время.</h3>
+
+<div class="content_mail">
+    <h3>С уважением, Forward</h3>
+    <img src="http://forward70.ru/media/portfolio/samson_mini.jpg" alt="логотип"/>
+    <p>Благодарим за сотрудничество!</p>
+    <p>8-900-888-77-70</p>
+    <a href="http://foreard70.ru/">http://forward70.ru/</a>
+    <a href="mailto:forward.70@yandex.ru">forward.70@yandex.ru</a>
+</div>
